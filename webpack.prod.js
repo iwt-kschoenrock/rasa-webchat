@@ -3,12 +3,13 @@
 const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { version } = require('./package.json');
 
 module.exports = [
 //   {
 //   // entry: ['babel-polyfill', './index.js'],
-//   entry: './index_for_react_app.js',
+//   entry: './umd.js',
 //   output: {
 //     path: path.join(__dirname, '/lib'),
 //     filename: 'index.js',
@@ -109,7 +110,8 @@ module.exports = [
       {
         test: /\.scss$/,
         use: [
-          { loader: 'style-loader' },
+          { loader: MiniCssExtractPlugin.loader },
+          // { loader: 'style-loader' },
           { loader: 'css-loader' },
           {
             loader: 'sass-loader',
@@ -121,7 +123,9 @@ module.exports = [
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 
+          // 'style-loader',
+           'css-loader']
       },
       {
         test: /\.(jpg|png|gif|svg|woff|ttf|eot)$/,
@@ -131,6 +135,6 @@ module.exports = [
       }
     ]
   },
-  plugins: [new CleanWebpackPlugin(['module'])]
+  plugins: [new MiniCssExtractPlugin(),new CleanWebpackPlugin(['module'])]
 }
 ];
