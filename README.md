@@ -1,3 +1,18 @@
+# A Fork of `rasa-webchat` to use in the Support Assistant Chris
+
+This fork was created to restore the `toggleChat` function that was removed after the `0.6` version.
+
+## Usage
+
+Generate a package from this project, and follow instructions on the Support Assistant Project to update
+the package there.
+
+1. `npm i`
+2. `npm pack` - this will generate a `rasa-webchat-<version>.tgz` package that can be installed with NPM in the 
+  target project.
+3. copy `rasa-webchat-<version>.tgz` to the target project
+4. 
+
 <p align="center">
 
 <a href="https://www.npmjs.com/package/botfront">

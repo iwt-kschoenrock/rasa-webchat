@@ -13,3 +13,4 @@ module
 # Test files
 coverage
 rasa-webchat-*.tgz
+test/
